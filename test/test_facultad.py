@@ -31,5 +31,5 @@ class FacultadTestCase(unittest.TestCase):
         self.assertEqual(facultad.nombre, "Facultad de Ciencias Exactas")
         self.assertEqual(facultad.abreviatura, "FCE")
 
-if _name_ == '_main_':
+if __name__ == "__main__":
     unittest.main()

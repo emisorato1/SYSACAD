@@ -1,10 +1,11 @@
 import unittest
+import os
 from flask import current_app
 from app import create_app
-import os
- 
-class AppTestCase(unittest.TestCase):
+from app.models.area import Area
 
+class   AreaTestCase(unittest.TestCase):
+ 
     def setUp(self):
         os.environ['FLASK_CONTEXT'] = 'testing'
         self.app = create_app()
@@ -13,9 +14,11 @@ class AppTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.app_context.pop()
+    
+    def test_area_creation(self):
+        area= Area()
+        
 
-    def test_app(self):
-        self.assertIsNotNone(current_app)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

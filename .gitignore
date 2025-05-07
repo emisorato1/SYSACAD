@@ -1,0 +1,40 @@
+# Entorno virtual
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# VSCode
+.vscode/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos de log y temporales
+*.log
+*.tmp
+*.bak
+*.swp
+
+# MacOS
+.DS_Store
+
+# Linux
+*~
+
+# Archivos de configuración generados por Python
+*.egg-info/
+*.eggs/
+
+# Archivos de sistema
+Thumbs.db
+desktop.ini
+
+# Archivos compilados
+*.so
+*.dll
+*.exe
+
+# Archivos de tests compilados
+test/__pycache__/

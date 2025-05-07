@@ -11,4 +11,4 @@ class Facultad():
     domicilio : str
     telefono : str
     contacto :  str 
-    email : str
+    email : str 
