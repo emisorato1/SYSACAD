@@ -1,4 +1,3 @@
-
 import os
 import unittest
 from sqlalchemy import text
@@ -26,6 +25,3 @@ class ConnectionTestCase(unittest.TestCase):
     
 if __name__ == '__main__':
     unittest.main()
-
-
-

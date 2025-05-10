@@ -1,1 +1,1 @@
-from .facultad_repositorio import FacultadRepositorio
+from .facultad_repositorio import FacultadRepository

@@ -76,3 +76,11 @@ Ejecutar las tareas de gestión/administración como procesos que solo se ejecut
 
 
 # CLASE 30/04/2025
+
+
+Para guardar en git hub 
+1- hago comit desde el visual 
+2- desde la terminal hago:
+   git add .
+3- desde terminal :
+    git push origin main

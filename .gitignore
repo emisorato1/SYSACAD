@@ -1,40 +1,118 @@
-# Entorno virtual
-venv/
-__pycache__/
-*.pyc
-*.pyo
-
-# VSCode
-.vscode/
-
-# Archivos de entorno
+# ─── Entornos Virtuales ─────────────────────────────────────────────
 .env
-.env.*
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+bin/
+include/
+lib/
+lib64/
+pyvenv.cfg
 
-# Archivos de log y temporales
+# ─── Archivos Python compilados ─────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.dll
+*.exe
+
+# ─── Archivos de configuración Python ───────────────────────────────
+*.egg
+*.egg-info/
+.eggs/
+.installed.cfg
+MANIFEST
+
+# ─── Herramientas de packaging ──────────────────────────────────────
+.Python
+build/
+dist/
+develop-eggs/
+downloads/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# ─── Herramientas de testing y cobertura ────────────────────────────
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+test/__pycache__/
+
+# ─── VSCode ─────────────────────────────────────────────────────────
+.vscode/
+*.code-workspace
+
+# ─── Archivos de entorno y configuración local ──────────────────────
+*.env
+.env.*
+local_settings.py
+
+# ─── Archivos temporales / logs ─────────────────────────────────────
 *.log
 *.tmp
 *.bak
 *.swp
-
-# MacOS
-.DS_Store
-
-# Linux
 *~
+pip-log.txt
+pip-delete-this-directory.txt
+celerybeat-schedule
+celerybeat.pid
 
-# Archivos de configuración generados por Python
-*.egg-info/
-*.eggs/
+# ─── Archivos de base de datos locales ──────────────────────────────
+db.sqlite3
+db.sqlite3-journal
 
-# Archivos de sistema
+# ─── Flask ──────────────────────────────────────────────────────────
+instance/
+.webassets-cache
+migrations/
+
+# ─── Jupyter / IPython ──────────────────────────────────────────────
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ─── Documentación / Sphinx / MkDocs ────────────────────────────────
+docs/_build/
+site/
+
+# ─── Otros IDEs / herramientas ──────────────────────────────────────
+.spyderproject
+.spyproject
+.ropeproject
+
+# ─── MacOS / Windows ────────────────────────────────────────────────
+.DS_Store
 Thumbs.db
 desktop.ini
 
-# Archivos compilados
-*.so
-*.dll
-*.exe
+# ─── Type Checkers ──────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+.pyre/
 
-# Archivos de tests compilados
-test/__pycache__/
+# ─── PyInstaller ────────────────────────────────────────────────────
+*.spec
+
+# ─── Traducciones ───────────────────────────────────────────────────
+*.mo
+*.pot
+
+# ─── Otros ──────────────────────────────────────────────────────────
+__pypackages__/
