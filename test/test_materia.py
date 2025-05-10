@@ -24,4 +24,4 @@ class MateriaTestCase(unittest.TestCase):
         self.assertEqual(materia.codigo, "MAT101")
 
 if __name__ == "__main__":
-    unittest.main()   
+    unittest.main()

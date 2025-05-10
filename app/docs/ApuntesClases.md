@@ -69,3 +69,10 @@ Tratar los historiales como una transmisión de eventos
 
 XII. Administración de procesos
 Ejecutar las tareas de gestión/administración como procesos que solo se ejecutan una vez
+
+
+ 
+
+
+
+# CLASE 30/04/2025
