@@ -14,7 +14,7 @@ class FacultadTestCase(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         db.create_all()
-
+ 
     def tearDown(self): 
         db.session.remove()
         db.drop_all()
@@ -31,7 +31,7 @@ class FacultadTestCase(unittest.TestCase):
         FacultadService.crear_facultad(facultad)
         self.assertIsNotNone(facultad)
         self.assertIsNotNone(facultad.id)
-        self.assertGreaterEqual(facultad.id, 1)
+        self.assertGreaterEqual(facultad.id, 1) 
         self.assertEqual(facultad.nombre, "Facultad de Ciencias Exactas")
         
     def test_facultad_busqueda(self):

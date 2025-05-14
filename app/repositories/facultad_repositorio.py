@@ -1,6 +1,6 @@
 from app import db
 from app.models import Facultad
-
+ 
 class FacultadRepository:
     """
     Clase de repositorio para la entidad Facultad.
@@ -9,7 +9,7 @@ class FacultadRepository:
     def crear(facultad):
         """
         Crea una nueva facultad en la base de datos.
-        :param facultad: Objeto Facultad a crear.
+        :param facultad: Objeto Facultad a crear. 
         :return: Objeto Facultad creado.
         """
         db.session.add(facultad)

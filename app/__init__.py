@@ -16,11 +16,12 @@ def create_app() -> Flask:
 
     db.init_app(app)
     migrate.init_app(app, db)  
+    from app.models import Facultad, Materia
 
     @app.shell_context_processor
     def ctx():
         return {"app": app, "db": db}  
-
+    
     return app
    
-
+ 

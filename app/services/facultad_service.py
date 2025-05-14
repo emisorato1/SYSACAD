@@ -1,8 +1,8 @@
 from app.models import Facultad
 from app.repositories.facultad_repositorio import FacultadRepository
 
-
-
+ 
+ 
 class FacultadService:
     """
     Clase de servicio para la entidad Facultad.
