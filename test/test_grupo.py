@@ -4,8 +4,7 @@ from flask import current_app
 from app import create_app
 from app.models.grupo import Grupo
 
-class   GrupoTestCase(unittest.TestCase):
- 
+class GrupoTestCase(unittest.TestCase):
     def setUp(self):
         os.environ['FLASK_CONTEXT'] = 'testing'
         self.app = create_app()
@@ -14,11 +13,10 @@ class   GrupoTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.app_context.pop()
-    
+
     def test_grupo_creation(self):
-        area= Grupo()
-        
-
-
-if __name__ == "__main__":
-    unittest.main()
+        grupo = Grupo()
+        grupo.nombre = "Grupo A"
+        self.assertIsNotNone(grupo)
+        self.assertIsNotNone(grupo.nombre)
+        self.assertEqual(grupo.nombre, "Grupo A")

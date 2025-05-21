@@ -5,7 +5,8 @@ from app.models.materia import Materia
 
 @dataclass(init=False, repr=True, eq=True)
 class Orientacion():
-    nombre : str
+    nombre: str
     especialidad: Especialidad
     plan: Plan
-    materia: Materia
+    materias: Materia
+    

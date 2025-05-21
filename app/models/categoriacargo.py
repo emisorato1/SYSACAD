@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
 @dataclass(init=False, repr=True, eq=True)
-class Area():
+class CategoriaCargo():
     nombre: str
-    

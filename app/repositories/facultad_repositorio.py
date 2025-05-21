@@ -1,34 +1,34 @@
 from app import db
 from app.models import Facultad
- 
+
 class FacultadRepository:
     """
-    Clase de repositorio para la entidad Facultad.
+    Repositorio para gestionar las facultades.
     """
     @staticmethod
     def crear(facultad):
         """
         Crea una nueva facultad en la base de datos.
-        :param facultad: Objeto Facultad a crear. 
-        :return: Objeto Facultad creado.
+        :param facultad: Facultad a crear.
+        :return: Facultad creada.
         """
         db.session.add(facultad)
         db.session.commit()
-        
+
     @staticmethod
     def buscar_por_id(id: int):
         """
         Busca una facultad por su ID.
         :param id: ID de la facultad a buscar.
-        :return: Objeto Facultad encontrado o None si no se encuentra.
+        :return: Facultad encontrada o None si no se encuentra.
         """
-        return db.session.query(Facultad).filter_by(id=id).first()
-    
+        return db.session.query(Facultad).filter_by(id=id).first() 
+
     @staticmethod
     def buscar_todos():
         """
         Busca todas las facultades en la base de datos.
-        :return: Lista de objetos Facultad.
+        :return: Lista de facultades.
         """
         return db.session.query(Facultad).all()
     

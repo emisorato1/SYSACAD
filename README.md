@@ -15,3 +15,16 @@
     - Departamento
     - Alumno - TipoDocumento
 
+
+
+
+
+      Test
+       ↓
+    Service (reglas de negocio)
+       ↓
+ Repository (consulta y guarda datos)
+       ↓
+  Base de datos
+
+
