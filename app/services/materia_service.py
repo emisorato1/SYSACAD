@@ -1,60 +1,49 @@
 from app.models import Materia
-from app.repositories.materia_repositorio import MateriaRepository
+from app.repositories import MateriaRepository, AutoridadRepository
 
-
- 
 class MateriaService:
-    """
-    Clase de servicio para la entidad Materia.
-    """
     @staticmethod
-    def crear_materia(materia: Materia):
-        """
-        Crea una nueva materia en la base de datos.
-        :param materia: Objeto Materia a crear.
-        :return: Objeto Materia creado.
-        """
-        MateriaRepository.crear(materia)
-    
+    def crear(materia):
+       MateriaRepository.crear(materia)
+
     @staticmethod
     def buscar_por_id(id: int) -> Materia:
-        """
-        Busca una materia por su ID.
-        :param id: ID de la materia a buscar.
-        :return: Objeto Materia encontrado o None si no se encuentra.
-        """
+        # pyrefly: ignore  # bad-return
         return MateriaRepository.buscar_por_id(id)
-    
+
     @staticmethod
     def buscar_todos() -> list[Materia]:
-        """
-        Busca todas las materias en la base de datos.
-        :return: Lista de objetos Materia.
-        """
         return MateriaRepository.buscar_todos()
-    
+
     @staticmethod
-    def actualizar_materia(id: int, materia: Materia) -> Materia:
-        """
-        Actualiza una materia existente en la base de datos.
-        :param id: ID de la materia a actualizar.
-        """
+    def actualizar(id: int, materia: Materia) -> Materia:
         materia_existente = MateriaRepository.buscar_por_id(id)
         if not materia_existente:
+            # pyrefly: ignore  # bad-return
             return None
         materia_existente.nombre = materia.nombre
         materia_existente.codigo = materia.codigo
+        materia_existente.observacion = materia.observacion
         return materia_existente
-        
+
     @staticmethod
-    def borrar_por_id(id: int) -> Materia:
-        """
-        Borra una materia por su ID.
-        :param id: ID de la materia a borrar.
-        """
-        materia = MateriaRepository.buscar_por_id(id)
-        if not materia:
-            return None
-        return materia
-    
-        
+    def borrar_por_id(id: int) -> bool:
+        return MateriaRepository.borrar_por_id(id)
+
+
+
+    @staticmethod
+    def asociar_autoridad(materia_id: int, autoridad_id: int):
+        materia = MateriaRepository.buscar_por_id(materia_id)
+        autoridad = AutoridadRepository.buscar_por_id(autoridad_id)
+        if not materia or not autoridad:
+            raise ValueError("Materia o autoridad no encontrada")
+        MateriaRepository.asociar_autoridad(materia, autoridad)
+
+    @staticmethod
+    def desasociar_autoridad(materia_id: int, autoridad_id: int):
+        materia = MateriaRepository.buscar_por_id(materia_id)
+        autoridad = AutoridadRepository.buscar_por_id(autoridad_id)
+        if not materia or not autoridad:
+            raise ValueError("Materia o autoridad no encontrada")
+        MateriaRepository.desasociar_autoridad(materia, autoridad)

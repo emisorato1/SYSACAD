@@ -10,7 +10,11 @@ class Config(object):
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True
-    
+    HASHIDS_MIN_LENGTH = os.environ.get('HASHIDS_MIN_LENGTH')
+    HASHIDS_ALPHABET = os.environ.get('HASHIDS_ALPHABET')
+    HASHIDS_SALT = os.environ.get('HASHIDS_SALT')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+
     @staticmethod
     def init_app(app):
         pass
@@ -44,4 +48,5 @@ def factory(app: str) -> Config:
         'production': ProductionConfig
     }
     
-    return configuration[app]
+    return configuration[app] #type: ignore
+    #TODO preguntar porq aparecen errores en donde tengo type

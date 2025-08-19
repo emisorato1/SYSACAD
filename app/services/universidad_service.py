@@ -3,7 +3,7 @@ from app.repositories import UniversidadRepository
 
 class UniversidadService:
     @staticmethod
-    def crear_universidad(universidad: Universidad):
+    def crear(universidad: Universidad):
         """
         Crea una nueva universidad en la base de datos.
         :param universidad: Universidad a crear.
@@ -29,7 +29,7 @@ class UniversidadService:
         return UniversidadRepository.buscar_todos()
     
     @staticmethod
-    def actualizar_universidad(id: int, universidad: Universidad) -> Universidad:
+    def actualizar(id: int, universidad: Universidad) -> Universidad:
         """
         Actualiza una universidad existente en la base de datos.
         :param id: ID de la universidad a actualizar.
@@ -44,15 +44,12 @@ class UniversidadService:
         return universidad_existente
     
     @staticmethod
-    def borrar_por_id(id: int) -> Universidad:
+    def borrar_por_id(id: int) -> bool:
         """
         Borra una universidad por su ID.
         :param id: ID de la universidad a borrar.
-        :return: Objeto Universidad borrado o None si no se encuentra.
+        :return: True si fue eliminada, False si no se encontró.
         """
+        return UniversidadRepository.borrar_por_id(id)
 
-        universidad = UniversidadRepository.borrar_por_id(id)
-        if not universidad:
-            return None
-        return universidad
     

@@ -4,6 +4,7 @@
 
 # Activar el entorno virtual
 # Cambiar la ruta del entorno virtual si es necesario
-& "$env:USERPROFILE\environments\gral_env\Scripts\Activate.ps1"
+& ".\venv\Scripts\Activate.ps1"
 
 pip3 install -r requirements.txt
+
