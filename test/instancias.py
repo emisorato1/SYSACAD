@@ -38,9 +38,7 @@ def nuevocargo(nombre="Profesor", puntos=10, categoria_cargo=None, tipo_dedicaci
     cargo = Cargo()
     cargo.nombre = nombre
     cargo.puntos = puntos
-    # pyrefly: ignore  # bad-assignment
     cargo.categoria_cargo = categoria_cargo or nuevacategoriacargo()
-    # pyrefly: ignore  # bad-assignment
     cargo.tipo_dedicacion = tipo_dedicacion or nuevotipodedicacion()
     CargoService.crear(cargo)
     return cargo
@@ -63,7 +61,6 @@ def nuevafacultad(nombre="Facultad de Ciencias", abreviatura="FCC", directorio="
 
     if autoridades is None:
         autoridades = []
-    # pyrefly: ignore  # bad-assignment
     facultad.autoridades = autoridades
 
     FacultadService.crear(facultad)
@@ -84,18 +81,17 @@ def nuevaarea(nombre="Matematica"):
 def nuevotipoespecialidad(nombre="Cardiologia", nivel="Avanzado"):
     tipo = TipoEspecialidad()
     tipo.nombre = nombre
-    # pyrefly: ignore  # missing-attribute
     tipo.nivel = nivel
     TipoEspecialidadService.crear(tipo)
     return tipo
 
-def nuevaespecialidad(nombre="Matematicas", letra="A", observacion="Observacion de prueba", tipoespecialidad=None):
+def nuevaespecialidad(nombre="Matematicas", letra="A", observacion="Observacion de prueba", tipoespecialidad=None, facultad=None):
     esp = Especialidad()
     esp.nombre = nombre
     esp.letra = letra
     esp.observacion = observacion
-    # pyrefly: ignore  # bad-assignment
     esp.tipoespecialidad = tipoespecialidad or nuevotipoespecialidad()
+    esp.facultad = facultad or nuevafacultad() 
     EspecialidadService.crear(esp)
     return esp
 
@@ -116,7 +112,6 @@ def nuevamateria(nombre="Matematica", codigo="MAT101", observacion="Observacion 
 
     if autoridades is None:
         autoridades = []  
-    # pyrefly: ignore  # bad-assignment
     materia.autoridades = autoridades
     
     MateriaService.crear(materia)
@@ -125,11 +120,8 @@ def nuevamateria(nombre="Matematica", codigo="MAT101", observacion="Observacion 
 def nuevaorientacion(nombre="Orientacion 1", especialidad=None, plan=None, materia=None):
     orientacion = Orientacion()
     orientacion.nombre = nombre
-    # pyrefly: ignore  # bad-assignment
     orientacion.especialidad = especialidad or nuevaespecialidad()
-    # pyrefly: ignore  # bad-assignment
     orientacion.plan = plan or nuevoplan()
-    # pyrefly: ignore  # bad-assignment
     orientacion.materia = materia or nuevamateria()
     OrientacionService.crear(orientacion)
     return orientacion
@@ -155,37 +147,35 @@ def nuevogrupo(nombre="Grupo A"):
     return grupo
 
 def nuevoalumno(nombre="Juan", apellido="Pérez", nrodocumento="46291002", tipo_documento=None,
-                fecha_nacimiento=date(1990, 1, 1), sexo="M", nro_legajo=123456, fecha_ingreso=date(2020, 1, 1)):
+                fecha_nacimiento=date(1990, 1, 1), sexo="M", nro_legajo=123456, fecha_ingreso=date(2020, 1, 1), especialidad=None):
     alumno = Alumno()
     alumno.nombre = nombre
     alumno.apellido = apellido
     alumno.nrodocumento = nrodocumento
-    # pyrefly: ignore  # bad-assignment
     alumno.tipo_documento = tipo_documento or nuevotipodocumento()
     alumno.fecha_nacimiento = fecha_nacimiento
     alumno.sexo = sexo
     alumno.nro_legajo = nro_legajo
     alumno.fecha_ingreso = fecha_ingreso
+    alumno.especialidad = especialidad or nuevaespecialidad()  # <-- ASIGNAR ESPECIALIDAD
     AlumnoService.crear(alumno)
     return alumno
+
 
 def nuevaautoridad(nombre="Pelo", cargo=None, telefono="123456789", email="123@gmail.com", 
                    materias=None, facultades=None):
     autoridad = Autoridad()
     autoridad.nombre = nombre
-    # pyrefly: ignore  # bad-assignment
     autoridad.cargo = cargo or nuevocargo()
     autoridad.telefono = telefono
     autoridad.email = email
 
     if materias is None:
         materias = []
-    # pyrefly: ignore  # bad-assignment
     autoridad.materias = materias
 
     if facultades is None:
         facultades = []
-    # pyrefly: ignore  # bad-assignment
     autoridad.facultades = facultades
     
     AutoridadService.crear(autoridad)

@@ -22,7 +22,7 @@ class AlumnoTestCase(unittest.TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
-        self.app_context.pop()
+        self.app_context.pop() 
 
     def test_crear(self):
         alumno = nuevoalumno()
