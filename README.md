@@ -153,7 +153,7 @@ Para ejecutar los tests:
 ```bash
 python -m unittest discover test
 ```
-Tambien se pueden configurar los unitests
+Tambien se pueden configurar los unitests y si no andan a la primera hay que reiniciar el visual studio code y van a andar
 ---
 
 
