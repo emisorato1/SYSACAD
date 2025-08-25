@@ -10,6 +10,12 @@ class CargoService:
         CargoRepository.crear(cargo)
 
     @staticmethod
+    def borrar_por_id(id: int) -> bool:
+        from app.repositories.cargo_repositorio import CargoRepository
+        return CargoRepository.borrar_por_id(id)
+
+
+    @staticmethod
     def buscar_por_id(id: int) -> Cargo:        
         return CargoRepository.buscar_por_id(id)
 
