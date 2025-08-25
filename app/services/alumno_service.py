@@ -52,11 +52,16 @@ class AlumnoService:
         if not documento:
             # pyrefly: ignore  # bad-return
             return None
-        
+        # seleccionar plantilla según tipo
+        if tipo in ('odt', 'docx'):
+            plantilla = 'certificado_plantilla'
+        else:
+            plantilla = 'certificado_pdf'
+
         # pyrefly: ignore  # missing-argument
         return documento.generar(
             carpeta='certificado',
-            plantilla='certificado_pdf',
+            plantilla=plantilla,
             context=context
         )
     

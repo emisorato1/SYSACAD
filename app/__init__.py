@@ -19,7 +19,8 @@ def create_app() -> Flask:
     """
     app_context = os.getenv('FLASK_CONTEXT')
     # https://flask.palletsprojects.com/en/stable/api/#flask.Flask
-    app = Flask(__name__)
+    # use custom template folder name 'template' (project uses singular)
+    app = Flask(__name__, template_folder='template')
     f = config.factory(app_context if app_context else 'development')
     app.config.from_object(f)
     db.init_app(app)
