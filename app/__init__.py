@@ -28,7 +28,8 @@ def create_app() -> Flask:
     hashids.init_app(app)
     ma.init_app(app)
 
-    from app.resources import home, universidad_bp, area_bp, tipodocumento_bp, tipodedicacion_bp, categoriacargo_bp, grupo_bp, grado_bp, departamento_bp, certificado_bp, tipo_especialidad_bp, plan_bp,cargo_bp
+    from app.resources import (home, universidad_bp, area_bp, tipodocumento_bp, tipodedicacion_bp, categoriacargo_bp, grupo_bp, grado_bp,
+                                departamento_bp, certificado_bp, tipo_especialidad_bp, plan_bp,cargo_bp, alumno_bp, autoridad_bp, facultad_bp,especialidad_bp, materia_bp, orientacion_bp)
     app.register_blueprint(home, url_prefix='/api/v1')
     app.register_blueprint(universidad_bp, url_prefix='/api/v1')
     app.register_blueprint(area_bp, url_prefix='/api/v1')
@@ -41,7 +42,13 @@ def create_app() -> Flask:
     app.register_blueprint(certificado_bp, url_prefix='/api/v1')
     app.register_blueprint(tipo_especialidad_bp, url_prefix='/api/v1')   
     app.register_blueprint(plan_bp, url_prefix='/api/v1')
-    app.register_blueprint(cargo_bp, url_prefix='/api/v1')   
+    app.register_blueprint(cargo_bp, url_prefix='/api/v1') 
+    app.register_blueprint(alumno_bp, url_prefix='/api/v1')
+    app.register_blueprint(autoridad_bp, url_prefix='/api/v1')
+    app.register_blueprint(facultad_bp, url_prefix='/api/v1')
+    app.register_blueprint(especialidad_bp, url_prefix='/api/v1')
+    app.register_blueprint(materia_bp, url_prefix='/api/v1')
+    app.register_blueprint(orientacion_bp, url_prefix='/api/v1')  
 
     @app.shell_context_processor
     def ctx():

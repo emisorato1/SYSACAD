@@ -9,3 +9,9 @@ from .departamento_mapping import DepartamentoMapping
 from .tipoespecialidad_mapping import TipoEspecialidadMapping
 from .plan_mapping import PlanMapping
 from .cargo_mapping import CargoMapping
+from .alumno_mapping import AlumnoMapping
+from .autoridad_mapping import AutoridadMapping
+from .facultad_mapping import FacultadMapping
+from .especialidad_mapping import EspecialidadMapping
+from .materia_mapping import MateriaMapping
+from .orientacion_mapping import OrientacionMapping

@@ -14,6 +14,8 @@ def buscar_todos():
 @universidad_bp.route('/universidad/<hashid:id>', methods=['GET'])
 def buscar_por_id(id):
     universidad = UniversidadService.buscar_por_id(id)
+    if not universidad:
+        return {"message": "Universidad no encontrada"}, 404
     return universidad_mapping.dump(universidad), 200
 
 @universidad_bp.route('/universidad', methods=['POST'])
@@ -33,5 +35,3 @@ def borrar_por_id(id):
     UniversidadService.borrar_por_id(id)
     return jsonify("Universidad borrada exitosamente"), 200
 
-
-#TODO preguntar al profe porq no anda los actualizar de todos los resources y si sacamos el type aparece como error 

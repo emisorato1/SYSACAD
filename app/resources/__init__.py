@@ -11,3 +11,9 @@ from .certificado_resource import certificado_bp
 from.tipoespecialidad_resource import tipo_especialidad_bp
 from .plan_resource import plan_bp
 from .cargo_resource import cargo_bp
+from .alumno_resource import alumno_bp
+from .autoridad_resource import autoridad_bp
+from .facultad_resource import facultad_bp
+from .especialidad_resource import especialidad_bp
+from .materia_resource import materia_bp
+from .orientacion_resource import orientacion_bp

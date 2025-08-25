@@ -21,13 +21,16 @@ class IndexTestCase(unittest.TestCase):
 
     def test_obtener_por_id(self):
         client = self.app.test_client(use_cookies=True)
-        universidad = nuevauniversidad()
-        universidad_mapping = UniversidadMapping()
-        response = client.get(f'http://localhost:5000/api/v1/universidad/{universidad.id}')
-        universidad_obtenida = universidad_mapping.load(response.get_json())
-        self.assertEqual(universidad_obtenida.id, universidad.id)
-        self.assertEqual(response.status_code, 200)
-        self.assertIsNotNone(response.get_json())
+        u = nuevauniversidad()
+
+        resp = client.get(f'/api/v1/universidad/{u.hashid}')
+        self.assertEqual(resp.status_code, 200)
+
+        data = resp.get_json()
+        self.assertIsNotNone(data)
+        self.assertEqual(data["hashid"], u.hashid)
+        self.assertEqual(data["nombre"], u.nombre)
+        self.assertEqual(data["sigla"], u.sigla)
 
     def test_obtener_todos(self):
         client = self.app.test_client(use_cookies=True)

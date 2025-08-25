@@ -157,7 +157,7 @@ def nuevoalumno(nombre="Juan", apellido="Pérez", nrodocumento="46291002", tipo_
     alumno.sexo = sexo
     alumno.nro_legajo = nro_legajo
     alumno.fecha_ingreso = fecha_ingreso
-    alumno.especialidad = especialidad or nuevaespecialidad()  # <-- ASIGNAR ESPECIALIDAD
+    alumno.especialidad = especialidad or nuevaespecialidad()  
     AlumnoService.crear(alumno)
     return alumno
 
