@@ -87,6 +87,14 @@ flask db upgrade
 
 ---
 
+## Poblar la Base de Datos
+```bash
+python .\poblar_db.py
+```
+Se agregaran datos a la base de datos.
+
+---
+
 ## Ejecución del servidor
 
 ```bash
@@ -109,6 +117,14 @@ La aplicación estará disponible en [http://localhost:5000](http://localhost:50
   ```
   (Reemplaza `<id>` por el ID de un alumno existente.)
 
+  - Ejemplo para obtener planes:
+  ```
+  GET http://localhost:5000/api/v1/plan
+  ```
+  - Ejemplo para obtener cargo:
+  ```
+  GET http://localhost:5000/api/v1/cargo
+  ```
 ---
 
 ## Estructura del proyecto
