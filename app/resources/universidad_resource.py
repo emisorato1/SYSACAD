@@ -34,4 +34,4 @@ def borrar_por_id(id):
     return jsonify("Universidad borrada exitosamente"), 200
 
 
-#TODO preguntar al profe porq no anda los actualizar de todos los resources y si sacamos el type aparece como error
+#TODO preguntar al profe porq no anda los actualizar de todos los resources y si sacamos el type aparece como error 

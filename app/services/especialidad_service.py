@@ -22,7 +22,7 @@ class EspecialidadService:
             return None
         especialidad_existente.nombre = especialidad.nombre
         especialidad_existente.letra = especialidad.letra
-        especialidad_existente.observacion = especialidad.obsevacion
+        especialidad_existente.observacion = especialidad.observacion
         especialidad_existente.tipoespecialidad = especialidad.tipoespecialidad
         especialidad_existente.facultad = especialidad.facultad
         return EspecialidadRepository.actualizar(especialidad_existente)

@@ -153,7 +153,7 @@ Para ejecutar los tests:
 ```bash
 python -m unittest discover test
 ```
-
+Tambien se pueden configurar los unitests
 ---
 
 

@@ -28,7 +28,7 @@ class FacultadService:
         facultad_existente.ciudad = facultad.ciudad
         facultad_existente.domicilio = facultad.domicilio
         facultad_existente.telefono = facultad.telefono
-        facultad_existente.contacto = facultad.contact
+        facultad_existente.contacto = facultad.contacto
         facultad_existente.email = facultad.email
         facultad_existente.universidad = facultad.universidad
         return FacultadRepository.actualizar(facultad_existente)
