@@ -21,5 +21,4 @@ class Alumno(db.Model):
 
     especialidad_id:int = db.Column(db.Integer, db.ForeignKey('especialidades.id'), nullable=False)
     especialidad = db.relationship('Especialidad', lazy=True)
-    #TODO facultad muchos a muchos 
     

@@ -100,5 +100,4 @@ def obtener_tipo_documento(tipo: str) -> Document:
         'odt': ODTDocument,
         'docx': DOCXDocument,
     }
-    # pyrefly: ignore  # bad-return
     return tipos.get(tipo)

@@ -6,7 +6,6 @@ from app.repositories import CategoriaCargoRepository, TipoDedicacionRepository
 
 class CargoMapping(Schema):
     id = fields.Integer(dump_only=True)
-    #pyrefly: ignore
     nombre = fields.String(required=True, validate=validate.Length(min=1, max=50))
     puntos = fields.Integer(allow_none=True)
 
