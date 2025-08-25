@@ -17,11 +17,9 @@ class OrientacionRepository:
     
     @staticmethod
     def actualizar(orientacion) -> Orientacion:
-        orientacion_existente = db.session.merge(orientacion)
-        if not orientacion_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return orientacion_existente
+        db.session.merge(orientacion)
+        db.session.commit()
+        return orientacion
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

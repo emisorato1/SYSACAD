@@ -9,7 +9,6 @@ class AutoridadService:
 
     @staticmethod
     def buscar_por_id(id: int) -> Autoridad:
-         # pyrefly: ignore  # bad-return
          return AutoridadRepository.buscar_por_id(id)
 
     @staticmethod
@@ -20,12 +19,11 @@ class AutoridadService:
     def actualizar(id: int, autoridad: Autoridad) -> Autoridad:
         autoridad_existente = AutoridadRepository.buscar_por_id(id)
         if not autoridad_existente:
-            # pyrefly: ignore  # bad-return
             return None
         autoridad_existente.nombre = autoridad.nombre
         autoridad_existente.telefono = autoridad.telefono
         autoridad_existente.email = autoridad.email
-        return autoridad_existente
+        return AutoridadRepository.actualizar(autoridad_existente)
 
     @staticmethod
     def borrar_por_id(id: int) -> bool:

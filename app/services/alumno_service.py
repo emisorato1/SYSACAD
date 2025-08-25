@@ -34,7 +34,7 @@ class AlumnoService:
         alumno_existente.nro_legajo = alumno.nro_legajo
         alumno_existente.fecha_ingreso = alumno.fecha_ingreso
         alumno_existente.especialidad = alumno.especialidad
-        return alumno_existente
+        return AlumnoRepository.actualizar(alumno_existente)
         
     @staticmethod
     def borrar_por_id(id: int) -> bool:

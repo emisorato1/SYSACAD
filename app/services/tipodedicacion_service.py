@@ -9,7 +9,6 @@ class TipoDedicacionService:
     
     @staticmethod
     def buscar_por_id(id: int) -> TipoDedicacion:
-        # pyrefly: ignore  # bad-return
         return TipoDedicacionRepository.buscar_por_id(id)
     
     @staticmethod
@@ -20,11 +19,10 @@ class TipoDedicacionService:
     def actualizar(id: int, tipodedicacion: TipoDedicacion) -> TipoDedicacion:
         tipodedicacion_existente = TipoDedicacionRepository.buscar_por_id(id)
         if not tipodedicacion_existente:
-            # pyrefly: ignore  # bad-return
             return None
         tipodedicacion_existente.nombre = tipodedicacion.nombre
         tipodedicacion_existente.observacion = tipodedicacion.observacion
-        return tipodedicacion_existente
+        return TipoDedicacionRepository.actualizar(tipodedicacion_existente)
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

@@ -15,11 +15,9 @@ class PlanRepository:
         return db.session.query(Plan).all()
     
     def actualizar(plan: Plan) -> Plan:
-        plan_existente = db.session.merge(plan)
-        if not plan_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return plan_existente
+        db.session.merge(plan)
+        db.session.commit()
+        return plan
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

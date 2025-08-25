@@ -8,7 +8,6 @@ class PlanService:
     
     @staticmethod
     def buscar_por_id(id: int) -> Plan:
-        # pyrefly: ignore  # bad-return
         return PlanRepository.buscar_por_id(id)
     
     @staticmethod
@@ -19,12 +18,11 @@ class PlanService:
     def actualizar(id : int, plan: Plan) -> Plan:
         plan_existente = PlanRepository.buscar_por_id(plan.id)
         if not plan_existente:
-            # pyrefly: ignore  # bad-return
             return None
         plan_existente.fecha_inicio = plan.fecha_inicio
         plan_existente.fecha_fin = plan.fecha_fin
         plan_existente.observacion = plan.observacion
-        return plan_existente
+        return PlanRepository.actualizar(plan_existente)
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

@@ -18,11 +18,9 @@ class DepartamentoRepository:
     
     @staticmethod
     def actualizar(departamento) -> Departamento:
-        departamento_existente = db.session.merge(departamento)
-        if not departamento_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return departamento_existente
+        db.session.merge(departamento)
+        db.session.commit()
+        return departamento
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

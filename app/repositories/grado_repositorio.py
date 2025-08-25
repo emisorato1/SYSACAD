@@ -20,11 +20,9 @@ class GradoRepository:
 
     @staticmethod
     def actualizar(grado) -> Grado:
-        grado_existente = db.session.merge(grado)
-        if not grado_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return grado_existente 
+        db.session.merge(grado)
+        db.session.commit()
+        return grado 
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

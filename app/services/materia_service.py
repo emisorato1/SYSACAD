@@ -8,7 +8,6 @@ class MateriaService:
 
     @staticmethod
     def buscar_por_id(id: int) -> Materia:
-        # pyrefly: ignore  # bad-return
         return MateriaRepository.buscar_por_id(id)
 
     @staticmethod
@@ -19,12 +18,11 @@ class MateriaService:
     def actualizar(id: int, materia: Materia) -> Materia:
         materia_existente = MateriaRepository.buscar_por_id(id)
         if not materia_existente:
-            # pyrefly: ignore  # bad-return
             return None
         materia_existente.nombre = materia.nombre
         materia_existente.codigo = materia.codigo
         materia_existente.observacion = materia.observacion
-        return materia_existente
+        return MateriaRepository.actualizar(materia_existente)
 
     @staticmethod
     def borrar_por_id(id: int) -> bool:

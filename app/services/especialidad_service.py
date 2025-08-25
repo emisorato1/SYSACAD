@@ -9,7 +9,6 @@ class EspecialidadService:
 
     @staticmethod
     def buscar_por_id(id: int) -> Especialidad:
-        # pyrefly: ignore  # bad-return
         return EspecialidadRepository.buscar_por_id(id)
     
     @staticmethod
@@ -20,14 +19,13 @@ class EspecialidadService:
     def actualizar(id: int, especialidad: Especialidad) -> Especialidad:
         especialidad_existente = EspecialidadRepository.buscar_por_id(id)
         if not especialidad_existente:
-            # pyrefly: ignore  # bad-return
             return None
         especialidad_existente.nombre = especialidad.nombre
         especialidad_existente.letra = especialidad.letra
-        especialidad_existente.observacion = especialidad.observacion
+        especialidad_existente.observacion = especialidad.obsevacion
         especialidad_existente.tipoespecialidad = especialidad.tipoespecialidad
         especialidad_existente.facultad = especialidad.facultad
-        return especialidad_existente
+        return EspecialidadRepository.actualizar(especialidad_existente)
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

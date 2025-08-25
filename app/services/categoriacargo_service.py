@@ -9,7 +9,6 @@ class CategoriaCargoService:
 
     @staticmethod
     def buscar_por_id(id: int) -> CategoriaCargo:
-        # pyrefly: ignore  # bad-return
         return CategoriaCargoRepository.buscar_por_id(id)
     
     @staticmethod
@@ -20,10 +19,9 @@ class CategoriaCargoService:
     def actualizar(id: int, tipodocumento: CategoriaCargo) -> CategoriaCargo:
         categoria_existente = CategoriaCargoRepository.buscar_por_id(id)
         if not categoria_existente:
-            # pyrefly: ignore  # bad-return
             return None
         categoria_existente.nombre = tipodocumento.nombre
-        return categoria_existente
+        return CategoriaCargoRepository.actualizar(categoria_existente)
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

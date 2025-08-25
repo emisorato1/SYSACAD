@@ -18,11 +18,9 @@ class GrupoRepository:
     
     @staticmethod
     def actualizar(grupo) -> Grupo:
-        grupo_existente = db.session.merge(grupo)
-        if not grupo_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return grupo_existente
+        db.session.merge(grupo)
+        db.session.commit()
+        return grupo
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

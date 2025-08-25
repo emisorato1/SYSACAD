@@ -41,7 +41,7 @@ class UniversidadService:
             return None
         universidad_existente.nombre = universidad.nombre
         universidad_existente.sigla = universidad.sigla
-        return universidad_existente
+        return UniversidadRepository.actualizar(universidad_existente)
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

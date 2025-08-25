@@ -9,7 +9,6 @@ class CargoService:
 
     @staticmethod
     def buscar_por_id(id: int) -> Cargo:        
-        # pyrefly: ignore  # bad-return
         return CargoRepository.buscar_por_id(id)
 
     @staticmethod
@@ -20,13 +19,12 @@ class CargoService:
     def actualizar(id: int, cargo: Cargo) -> Cargo:
         cargo_existente = CargoRepository.buscar_por_id(id)
         if not cargo_existente:
-            # pyrefly: ignore  # bad-return
             return None
         cargo_existente.nombre = cargo.nombre
         cargo_existente.puntos = cargo.puntos
         cargo_existente.categoria_cargo = cargo.categoria_cargo
         cargo_existente.tipo_dedicacion = cargo.tipo_dedicacion
-        return cargo_existente
+        return CargoRepository.actualizar(cargo_existente)
         
     
     @staticmethod

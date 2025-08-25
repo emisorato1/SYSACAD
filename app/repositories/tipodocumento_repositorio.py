@@ -18,11 +18,9 @@ class TipoDocumentoRepository:
     
     @staticmethod
     def actualizar(tipodocumento) -> TipoDocumento:
-        tipodocumento_existente = db.session.merge(tipodocumento)
-        if not tipodocumento_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return tipodocumento_existente
+        db.session.merge(tipodocumento)
+        db.session.commit()
+        return tipodocumento
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

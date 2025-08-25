@@ -17,12 +17,10 @@ class AutoridadRepository:
 
     @staticmethod
     def actualizar(autoridad) -> Autoridad:
-        autoridad_existente = db.session.merge(autoridad)
-        if not autoridad_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return autoridad_existente
-
+        db.session.merge(autoridad)
+        db.session.commit()
+        return autoridad
+    
     @staticmethod
     def borrar_por_id(id: int) -> bool:
         autoridad = db.session.query(Autoridad).filter_by(id=id).first()

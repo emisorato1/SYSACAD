@@ -18,12 +18,9 @@ class TipoDedicacionRepository:
     
     @staticmethod
     def actualizar(tipodedicacion) -> TipoDedicacion:
-        tipodedicacion_existente = db.session.merge(TipoDedicacion)
-        if not tipodedicacion_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        # pyrefly: ignore  # bad-return
-        return tipodedicacion_existente
+        db.session.merge(tipodedicacion)
+        db.session.commit()
+        return tipodedicacion
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

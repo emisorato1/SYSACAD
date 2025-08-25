@@ -40,10 +40,9 @@ class UniversidadRepository:
         :param universidad: Universidad con los nuevos datos.
         :return: Universidad actualizada.
         """
-        facultad_existente = db.session.merge(universidad)
-        if not facultad_existente:
-            return None
-        return facultad_existente
+        db.session.merge(universidad)
+        db.session.commit()
+        return universidad
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

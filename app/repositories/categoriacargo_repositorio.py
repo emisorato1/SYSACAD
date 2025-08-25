@@ -18,11 +18,9 @@ class CategoriaCargoRepository:
     
     @staticmethod
     def actualizar(categoria) -> CategoriaCargo:
-        categoria_existente = db.session.merge(categoria)
-        if not categoria_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return categoria_existente
+        db.session.merge(categoria)
+        db.session.commit()
+        return categoria
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:

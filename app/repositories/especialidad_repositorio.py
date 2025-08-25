@@ -18,11 +18,9 @@ class EspecialidadRepository:
 
     @staticmethod
     def actualizar(especialidad) -> Especialidad:
-        especialidad_existente = db.session.merge(especialidad)
-        if not especialidad_existente:
-            # pyrefly: ignore  # bad-return
-            return None
-        return especialidad_existente
+        db.session.merge(especialidad)
+        db.session.commit()
+        return especialidad
     
     @staticmethod
     def borrar_por_id(id: int) -> bool:
