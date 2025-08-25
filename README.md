@@ -8,6 +8,13 @@ Este proyecto también aplica **TDD (Test-Driven Development)**: cada funcionali
 
 ---
 
+## Integrantes del equipo
+
+- **Emiliano Sorato**
+
+---
+
+
 ## Requerimientos
 
 - Python 3.10 o superior
@@ -87,7 +94,7 @@ flask db upgrade
 
 ---
 
-## Poblar la Base de Datos
+### 8. Poblar la Base de Datos
 ```bash
 python .\poblar_db.py
 ```
@@ -95,7 +102,7 @@ Se agregaran datos a la base de datos.
 
 ---
 
-## Ejecución del servidor
+### 9. Ejecución del servidor
 
 ```bash
 python app.py
