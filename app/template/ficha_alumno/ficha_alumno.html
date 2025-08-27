@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha del Alumno</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { text-align: center; }
+        .item { margin: 8px 0; }
+        .label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>FICHA DEL ALUMNO</h1>
+    <h2>Sistema Académico</h2>
+
+    <h3>Datos Personales</h3>
+    <div class="item"><span class="label">Legajo:</span> {{ alumno.nro_legajo }}</div>
+    <div class="item"><span class="label">Apellido:</span> {{ alumno.apellido }}</div>
+    <div class="item"><span class="label">Nombre:</span> {{ alumno.nombre }}</div>
+    <div class="item"><span class="label">Documento:</span> {{ alumno.nrodocumento }}</div>
+    <div class="item"><span class="label">Fecha Nacimiento:</span> {{ alumno.fecha_nacimiento }}</div>
+    <div class="item"><span class="label">Sexo:</span> {{ alumno.sexo }}</div>
+    <div class="item"><span class="label">Ingreso:</span> {{ alumno.fecha_ingreso }}</div>
+
+    <h3>Datos Académicos</h3>
+    <div class="item"><span class="label">Especialidad:</span> {{ especialidad.nombre if especialidad else 'No especificada' }}</div>
+    <div class="item"><span class="label">Facultad:</span> {{ facultad.nombre if facultad else 'No especificada' }}</div>
+    <div class="item"><span class="label">Universidad:</span> {{ universidad.nombre if universidad else 'No especificada' }}</div>
+
+
+</body>
+</html>

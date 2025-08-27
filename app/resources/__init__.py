@@ -17,3 +17,4 @@ from .facultad_resource import facultad_bp
 from .especialidad_resource import especialidad_bp
 from .materia_resource import materia_bp
 from .orientacion_resource import orientacion_bp
+from .ficha_alumno_resource import ficha_alumno_bp
