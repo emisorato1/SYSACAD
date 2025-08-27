@@ -2,11 +2,13 @@ from flask import jsonify, Blueprint, request
 
 from app.mapping.alumno_mapping import AlumnoMapping
 from app.services.alumno_service import AlumnoService
+from app import cache
 
 alumno_bp = Blueprint('alumno', __name__)
 alumno_mapping = AlumnoMapping()
 
 @alumno_bp.route('/alumno', methods=['GET'])
+@cache.cached(timeout=0)  # Cachea la respuesta por 0 segundos
 def buscar_todos():
     alumnos = AlumnoService.buscar_todos()
     return alumno_mapping.dump(alumnos, many=True), 200

@@ -150,7 +150,7 @@ db.session.commit()
 # 17. Alumnos
 al1 = Alumno(
     nombre="Juan",
-    apellido="Pérez",
+    apellido="Perez",
     nrodocumento="12345678",
     tipo_documento_id=tdoc1.id,
     fecha_nacimiento=date(2000,1,1),

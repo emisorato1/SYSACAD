@@ -6,11 +6,14 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from app.config import config
 from flask_hashids import Hashids
+from flask_caching import Cache
+from app.config.cache_config import cache_config
 
 db = SQLAlchemy()
 migrate = Migrate()
 ma = Marshmallow()
 hashids = Hashids()
+cache = Cache()
 
 def create_app() -> Flask:
     """
@@ -23,10 +26,12 @@ def create_app() -> Flask:
     app = Flask(__name__, template_folder='template')
     f = config.factory(app_context if app_context else 'development')
     app.config.from_object(f)
+    app.config.from_mapping(cache_config)  # Agrega la config de caché
     db.init_app(app)
     migrate.init_app(app, db)
     hashids.init_app(app)
     ma.init_app(app)
+    cache.init_app(app)
 
     from app.resources import (home, universidad_bp, area_bp, tipodocumento_bp, tipodedicacion_bp, categoriacargo_bp, grupo_bp, grado_bp,
                                 departamento_bp, certificado_bp, tipo_especialidad_bp, plan_bp,cargo_bp, alumno_bp, autoridad_bp, facultad_bp,especialidad_bp, materia_bp, orientacion_bp)

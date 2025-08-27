@@ -1,6 +1,19 @@
-TEST_DATABASE_URI='postgresql+psycopg2://usuario:password@localhost:5432/dbsysacad'
-DEV_DATABASE_URI='postgresql+psycopg2://usuario:password@localhost:5432/dbsysacad'
+# Base de datos
+TEST_DATABASE_URI='postgresql+psycopg2://usuario:password@localhost:5432/test_dbsysacad'
+DEV_DATABASE_URI='postgresql+psycopg2://usuario:password@localhost:5432/dev_dbsysacad'
 PROD_DATABASE_URI='postgresql://usuario:password@localhost:5432/dbsysacad'
 SQLALCHEMY_TRACK_MODIFICATIONS=False
 SQLALCHEMY_RECORD_QUERIES=True
-SECRET_KEY=tu_clave_secreta
+
+# Hashids
+HASHIDS_MIN_LENGTH=8
+HASHIDS_ALPHABET=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 # type: ignore
+HASHIDS_SALT=tu_salt_aqui # type: ignore
+
+# Flask secret
+SECRET_KEY=tu_clave_super_secreta # type: ignore
+
+# Redis para cache
+REDIS_HOST=localhost # type: ignore
+REDIS_PORT=6379
+REDIS_PASSWORD=tu_password_redis # type: ignore
