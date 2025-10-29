@@ -27,6 +27,7 @@ RUN mkdir app
 
 COPY ./app ./app
 COPY ./app.py .
+COPY ./poblar_db.py .
 COPY ./migrations ./migrations
 
 ADD requirements.txt ./requirements.txt

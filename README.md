@@ -157,3 +157,35 @@ Tambien se pueden configurar los unitests y si no andan a la primera hay que rei
 ---
 
 
+
+
+
+## Despliegue con Docker (SYSACAD)
+1. Tener Dockerfile en la raiz del proyecto
+2. En la carpeta docker tener el docker-compose.yml y el .env
+3. Crea la Red de Docker desde la raiz del proyecto
+```bash
+docker network create emisoratored
+```
+4. Construir la imagen de docker desde la raiz del proyecto
+```bash
+docker build -t sysacad:v1.0.0 .
+```
+5. Levantar los Servidores
+```bash
+cd docker/
+docker compose up -d
+```
+6. Preparar la Base de Datos (Con los contenedores corriendo, ejecuta los siguientes comandos (desde el directorio docker/) para preparar la base de datos.)
+```bash
+# Aplicar las migraciones
+docker compose exec estructura flask db upgrade
+
+# Poblar la Base de Datos: Esto ejecuta el script poblar_db.py que añadimos a la imagen.
+docker compose exec estructura python poblar_db.py
+```
+6. Probar que ande
+```bash
+http://localhost:5000/api/v1/facultad
+http://localhost:5000/api/v1/certificado/1/pdf
+```
