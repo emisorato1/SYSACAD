@@ -1,15 +1,60 @@
 services:
-    estructura:
-        image: flask-sysacad:v1.0.0
+    db:
+        image: postgres:16-alpine
         networks:
-          - mired
+          - emisoratored
+        environment:
+          - POSTGRES_DB=${POSTGRES_DB}
+          - POSTGRES_USER=${POSTGRES_USER}
+          - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+        volumes:
+          - pgdata:/var/lib/postgresql/data
+        healthcheck:
+          test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB || exit 1"]
+          interval: 10s
+          timeout: 5s
+          retries: 5
+
+    redis:
+        image: redis:7-alpine
+        networks:
+          - emisoratored
+
+    estructura:
+        build:
+          context: .. 
+          dockerfile: Dockerfile
+        image: sysacad:v1.0.0
+        networks:
+          - emisoratored
         ports:
           - 5000:5000
+        env_file:
+          - .env
         environment:
           - FLASK_CONTEXT=${FLASK_CONTEXT}
           - SQLALCHEMY_TRACK_MODIFICATIONS=${SQLALCHEMY_TRACK_MODIFICATIONS}  
           - SQLALCHEMY_RECORD_QUERIES=${SQLALCHEMY_RECORD_QUERIES}
           - PROD_DATABASE_URI=${PROD_DATABASE_URI}
+          - DEV_DATABASE_URI=${DEV_DATABASE_URI}
+          - TEST_DATABASE_URI=${TEST_DATABASE_URI}
+          - HASHIDS_ALPHABET=${HASHIDS_ALPHABET}
+          - HASHIDS_SALT=${HASHIDS_SALT}
+          - SECRET_KEY=${SECRET_KEY}
+          - HASHIDS_MIN_LENGTH=${HASHIDS_MIN_LENGTH}
+          - REDIS_HOST=${REDIS_HOST}
+          - REDIS_PORT=${REDIS_PORT}
+          - REDIS_PASSWORD=${REDIS_PASSWORD}
+        depends_on:
+          db:
+            condition: service_healthy
+          redis:
+            condition: service_started
+
 networks:
-    mired:
+    emisoratored:
         external: true
+
+volumes:
+  pgdata:
