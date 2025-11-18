@@ -8,7 +8,7 @@ psycopg2==2.9.10
 psycopg[binary]
 python-dotenv==1.1.0
 flask_Migrate==4.1.0
-weasyprint==65.1  # Transforma html a pdf
+weasyprint==65.1 
 python-odt-template==0.5.1
 docxtpl==0.20.0
 Flask-hashids==1.0.3
